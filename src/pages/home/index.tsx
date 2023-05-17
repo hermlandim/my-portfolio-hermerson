@@ -79,7 +79,7 @@ export const Home = (): JSX.Element => {
       <ProjectsArea id="projetos">
         <Container>
           <ProjectsAreaContent>
-            <Text as="h4" type="heading2" color="grey1">
+            <Text as="h4" type="heading2" color="grey1" css={{ marginBottom: "$2" }}>
               Principais Projetos
             </Text>
             <CardProject 
