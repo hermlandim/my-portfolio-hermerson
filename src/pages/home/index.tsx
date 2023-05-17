@@ -79,6 +79,9 @@ export const Home = (): JSX.Element => {
       <ProjectsArea id="projetos">
         <Container>
           <ProjectsAreaContent>
+            <Text as="h4" type="heading2" color="grey1">
+              Principais Projetos
+            </Text>
             <CardProject 
             imageSrc="https://i.imgur.com/hbDHV9l.png"
             imageAlt="Projeto 2 Give App"

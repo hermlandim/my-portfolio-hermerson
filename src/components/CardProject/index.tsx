@@ -13,7 +13,7 @@ import Scrollbars from "react-custom-scrollbars";
 
 
 const CardProject = ({imageSrc, imageAlt, titleProject, descriptionProject, linkProject}:any) => {
-   const trackStyle = { backgroundColor: '#00adb5', width: 8, right: 0, bottom: 2, top: 2, borderRadius: 4 };
+   const trackStyle = { backgroundColor: '#0F4C75', width: 8, right: 0, bottom: 2, top: 2, borderRadius: 4 };
 
    const renderTrackVertical = () => <div style={trackStyle} className="track-vertical" />;
 
