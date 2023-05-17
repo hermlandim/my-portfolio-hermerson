@@ -33,12 +33,12 @@ const CardProject = ({imageSrc, imageAlt, titleProject, descriptionProject, link
         width: "100%"
     }}
     variants={{
-        hidden: { opacity: 0, x: 100 },
+        hidden: { opacity: 0, x: -100 },
         visible: { opacity: 1, x: 0 }
     }}
     initial="hidden"
     animate={mainControls}
-    transition={{ duration: 1, delay: 0.25 }}
+    transition={{ duration: 0.5, delay: 0.25 }}
     ref={ref}
     >
         <CardChakra 
