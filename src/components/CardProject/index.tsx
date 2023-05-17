@@ -38,7 +38,7 @@ const CardProject = ({imageSrc, imageAlt, titleProject, descriptionProject, link
     }}
     initial="hidden"
     animate={mainControls}
-    transition={{ duration: 0.5, delay: 0.25 }}
+    transition={{ duration: 0.75, delay: 0.25 }}
     ref={ref}
     >
         <CardChakra 
