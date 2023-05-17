@@ -29,6 +29,7 @@ import {
 //Libs Externas
 import Scrollbars from "react-custom-scrollbars";
 import CardProject from "@/components/CardProject";
+import { Transition } from 'react-transition-group';
 
 
 export const Home = (): JSX.Element => {
@@ -38,7 +39,7 @@ export const Home = (): JSX.Element => {
   const trackStyle = { backgroundColor: '#00adb5', width: 8, right: 0, bottom: 2, top: 2, borderRadius: 4 };
 
   const renderTrackVertical = () => <div style={trackStyle} className="track-vertical" />;
-
+  // const { ref } = useParallax({ speed: 10 });
 
   return (
     <main>
@@ -101,6 +102,7 @@ export const Home = (): JSX.Element => {
             uma consulta, a aplicação fará isso por ele."
             linkProject="https://github.com/hermlandim/OneHealth_M4"
             />
+
             <CardProject 
             imageSrc="https://i.imgur.com/vmz4uZm.png"
             imageAlt="Projeto Outfit Commerce"
@@ -108,6 +110,7 @@ export const Home = (): JSX.Element => {
             descriptionProject="Uma API de E-Commerce desenvolvida em Python com Django-Rest-Framework usando Generic View, Model Serializer e Postgres. A API tem o propósito principal de gerenciar um e-commerce de roupas usando banco de dados relacionais, isto é, implementação de relacionamento 1:1, 1:N e N:N entre as tabelas de usuário, endereço, produto, carrinho, pedido, lista de favoritos, avaliações, cadastro e uso de cupons etc. Conseguinte está implementado autenticação de rotas com JWT Token e acesso a rotas restritas apenas ao próprio usuário/vendedor ou administrador. O projeto tem intuito de ser escalável para implementações futuras. Além disso o projeto está em produção no Render para consumo."
             linkProject="https://github.com/hermlandim/outfit-commerce-backend"
             />
+
           </ProjectsAreaContent>
         </Container>
       </ProjectsArea>

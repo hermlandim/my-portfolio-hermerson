@@ -1,64 +1,87 @@
-// Styles
-import { Container } from "@/styles/Global";
-import { Text } from "@/styles/Text";
-import { Button } from "@/styles/Buttons";
+
 
 // Components
 import {CardChakra} from "./style"
-import { Stack } from "@/components/Stack";
-import { Project } from "@/components/Project";
-import { CardHeader, CardBody, CardFooter, Stack as StackChakra, Image, Heading, Text as TextChakra, Button as ButtonChakra, Link } from "@chakra-ui/react"
+import { CardBody, CardFooter, Stack as StackChakra, Image, Heading, Text as TextChakra, Link } from "@chakra-ui/react"
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import Scrollbars from "react-custom-scrollbars";
 
+
+import { motion, useInView, useAnimation } from "framer-motion"
+import { useEffect, useRef } from "react"
 
 const CardProject = ({imageSrc, imageAlt, titleProject, descriptionProject, linkProject}:any) => {
    const trackStyle = { backgroundColor: '#0F4C75', width: 8, right: 0, bottom: 2, top: 2, borderRadius: 4 };
 
    const renderTrackVertical = () => <div style={trackStyle} className="track-vertical" />;
 
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true })
+
+    const mainControls = useAnimation()
+
+    useEffect(() => {
+        if(isInView){
+           // Ative a Animação
+           mainControls.start("visible")
+        }
+    }, [isInView])
 
   return (
-    <CardChakra 
-    direction={{ base: "column", sm: "row" }}
-    overflow="hidden"
-    variant="outline"
-    height="12rem"
-    width="100%"
+    <motion.div
+    style={{
+        width: "100%"
+    }}
+    variants={{
+        hidden: { opacity: 0, y: 75 },
+        visible: { opacity: 1, y: 0 }
+    }}
+    initial="hidden"
+    animate={mainControls}
+    transition={{ duration: 0.5, delay: 0.25 }}
+    ref={ref}
     >
-        <Image 
-        objectFit="cover"
-        maxW={{ base: "100%", sm: "200px" }}
-        src={imageSrc}
-        alt={imageAlt}
-        />
-
-        <StackChakra
+        <CardChakra 
+        direction={{ base: "column", sm: "row" }}
+        overflow="hidden"
+        variant="outline"
+        height="12rem"
         width="100%"
         >
-            <Scrollbars
-            style={{ width: '100%', height: '300px' }}
-            renderThumbVertical={renderTrackVertical}
+            <Image 
+            objectFit="cover"
+            maxW={{ base: "100%", sm: "200px" }}
+            src={imageSrc}
+            alt={imageAlt}
+            />
+
+            <StackChakra
+            width="100%"
             >
-                <CardBody>
-                    <Heading size='md'>{titleProject}</Heading>
+                <Scrollbars
+                style={{ width: '100%', height: '300px' }}
+                renderThumbVertical={renderTrackVertical}
+                >
+                    <CardBody>
+                        <Heading size='md'>{titleProject}</Heading>
 
-                    <TextChakra 
-                        py='2'
-                        textAlign="justify"
-                        >
-                        {descriptionProject}
-                    </TextChakra>
-                </CardBody>
+                        <TextChakra 
+                            py='2'
+                            textAlign="justify"
+                            >
+                            {descriptionProject}
+                        </TextChakra>
+                    </CardBody>
 
-                <CardFooter>
-                    <Link href={linkProject} isExternal>
-                            Ver mais <ExternalLinkIcon mx='2px' />
-                    </Link>
-                </CardFooter>
-            </Scrollbars>
-        </StackChakra>
-    </CardChakra>
+                    <CardFooter>
+                        <Link href={linkProject} isExternal>
+                                Ver mais <ExternalLinkIcon mx='2px' />
+                        </Link>
+                    </CardFooter>
+                </Scrollbars>
+            </StackChakra>
+        </CardChakra>
+    </motion.div>
   )
 }
 
