@@ -26,11 +26,11 @@ export const Button = styled('button', {
             },
             primary: {
                 background: "$brand1",
-                borderColor: "$brand1",
+                // borderColor: "$brand2",
                 color: "$whiteFixed",
                 "&:hover": {
                     backgroundColor: "$brand2",
-                    borderColor: "$brand2",
+                    // borderColor: "$brand2",
                 }
             },
             icon: {

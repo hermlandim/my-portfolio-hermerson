@@ -72,9 +72,16 @@ export const ProjectsAreaSocialMediaMessage = styled("aside", {
   },
 });
 
+// Estilização do container dos projetos listados
 export const ProjectsAreaContent = styled("div", {
-  width: "60%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "1rem",
+  width: "100%",
   paddingLeft: "4rem",
+  objectFit: "fill",
   "@mobile": {
     width: "100%",
     paddingLeft: "0",

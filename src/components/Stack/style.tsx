@@ -4,7 +4,7 @@ import { Text } from "../../styles/Text";
 
 const scaleUp = keyframes({
   "0%": { transform: "translateY(15%)" },
-  "100%": { transform: "translateY(-140%)" },
+  "100%": { transform: "translateY(-100%)" },
 });
 
 export const StackCard = styled("div", {
@@ -50,7 +50,7 @@ export const StackCard = styled("div", {
     [`& ${Text}`]: {
       opacity: 1,
       top: 0,
-      transform: "translateY(-140%)",
+      transform: "translateY(-100%)",
       animation: `${scaleUp} 200ms`,
     },
   },
