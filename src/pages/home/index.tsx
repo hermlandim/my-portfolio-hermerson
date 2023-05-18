@@ -30,6 +30,8 @@ import {
 import Scrollbars from "react-custom-scrollbars";
 import CardProject from "@/components/CardProject";
 import { Transition } from 'react-transition-group';
+import { motion, useInView, useAnimation } from "framer-motion"
+import { useEffect, useRef } from "react"
 
 
 export const Home = (): JSX.Element => {
@@ -46,22 +48,39 @@ export const Home = (): JSX.Element => {
       <Header>
         <Container>
           <HeaderContent>
-            <Text as="h1" type="heading1" color="grey5">
-              Criando experiências por meio da tecnologia{" "}
-            </Text>
-            <Text type="body1" color="grey6">
-              Sou estudante de programação na Kenzie Academy Brasil, participei
-              de diversos projetos resolvendo problemas de alto nível e
-              desenvolvendo habilidades
-            </Text>
-            <HeaderButtonsArea>
-              <Button as="a" href="#projetos">
-                Projetos
-              </Button>
-              <Button as="a" href="#tecnologias" type="btLink" color="grey5">
-                Tecnologias
-              </Button>
-            </HeaderButtonsArea>
+            <motion.div
+              style={{
+                maxWidth: "100%",
+                width: "36rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.25rem"
+              }}
+              variants={{
+                hidden: { opacity: 0, x:75 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1.5, delay: 0.75 }}
+            >
+              <Text as="h1" type="heading1" color="grey5">
+                Criando experiências por meio da tecnologia{" "}
+              </Text>
+              <Text type="body1" color="grey5">
+                Sou estudante de programação na Kenzie Academy Brasil, participei
+                de diversos projetos resolvendo problemas de alto nível e
+                desenvolvendo habilidades
+              </Text>
+              <HeaderButtonsArea>
+                <Button as="a" href="#projetos">
+                  Projetos
+                </Button>
+                <Button as="a" href="#tecnologias" type="btLink" color="grey5">
+                  Tecnologias
+                </Button>
+              </HeaderButtonsArea>
+            </motion.div>
           </HeaderContent>
         </Container>
       </Header>
